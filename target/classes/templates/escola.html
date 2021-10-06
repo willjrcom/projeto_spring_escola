@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Escola</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/estilo.css}" rel="stylesheet"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<br>
+	<div class="divbase">
+		<a th:href="@{/curso}"><button class="btn btn-primary" style="float:right">Curso</button></a>
+		<h1 align="center">Escola</h1>
+		
+		<hr>
+		<div class="formbase">
+			<h2>Cadastrar Escola</h2>
+			
+			<input type="hidden" id="id"/>
+			
+			<div>
+				<label>Nome da escola:<br></label>
+				<input type="text" class="form-control" id="nome" placeholder="Nome da escola"/>
+			</div>
+			
+			<br>
+			<div>
+				<label>Endereço:<br></label>
+				<input type="text" class="form-control" id="endereco" placeholder="Endereço"/>
+			</div>
+			
+			<br>
+			<div>
+				<label>Máximo de alunos:<br></label>
+				<input type="number" class="form-control" id="totalAlunos" placeholder="Máximo de alunos"/>
+			</div>
+			
+			<br>
+			<div>
+				<label>Tipo:<br></label>
+				<select class="form-control" id="tipo">
+					<option value="Publica">Publica</option>
+					<option value="Privada">Privada</option>
+				</select>
+			</div>
+			
+			<br>
+			<button class="btn btn-success" onclick="salvar()">Salvar</button>
+		</div>
+		
+		<hr>
+		<div class="formbase">
+		
+			<h2>Escolas Cadastradas</h2>
+			<div class="row">
+				<div class="col-md-8"><input type="text" class="form-control" id="codigo" placeholder="Digite o codigo de busca"/></div>
+				<div class="col-md-2"><button class="btn btn-primary" onclick="buscar()">Buscar</button></div>
+				<div class="col-md-2"><button class="btn btn-primary" onclick="listarTodos()">Listar todos</button></div>
+			</div>
+			
+			<br>
+			<table style="width: 100%">
+				<thead>
+					<tr>
+						<th class="col-md-1 text-center"><h3>ID</h3></th>
+						<th class="col-md-1 text-center"><h3>Escola</h3></th>
+						<th class="col-md-1 text-center"><h3>Endereço</h3></th>
+						<th class="col-md-1 text-center"><h3>Max Alunos</h3></th>
+						<th class="col-md-1 text-center"><h3>Tipo</h3></th>
+						<th class="col-md-1 text-center"><h3>Cursos</h3></th>
+						<th class="col-md-1 text-center"><h3>Editar</h3></th>
+						<th class="col-md-1 text-center"><h3>Excluir</h3></th>
+					</tr>
+				</thead>
+				
+				<tbody id="escolas"></tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<script th:src="@{/js/escola.js}"></script>
+</body>
+</html>

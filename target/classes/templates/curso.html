@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Curso</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/estilo.css}" rel="stylesheet"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<br>
+	<div class="divbase">
+		<a th:href="@{/escola}"><button class="btn btn-primary" style="float:right">Escola</button></a>
+		<h1 align="center">Curso</h1>
+		
+		<hr>
+		<div class="formbase">
+			<h2>Cadastrar Curso</h2>
+			
+			<input type="hidden" id="id"/>
+			<div>
+				<label>Nome do curso:<br></label>
+				<input type="text" class="form-control" id="nome" placeholder="Nome do curso"/>
+			</div>
+			
+			<br>
+			<div>
+				<label>Duração:<br></label>
+				<input type="text" class="form-control" id="duracao" placeholder="x anos"/>
+			</div>
+			
+			<br>
+			<div>
+				<label>Mensalidade:<br></label>
+				<input type="text" class="form-control preco" id="mensalidade" placeholder="Mensalidade"/>
+			</div>
+			
+			<br>
+			<div>
+				<label>Escola:<br></label>
+				<div id="escolaSelect"></div>
+			</div>
+			
+			<br>
+			<button class="btn btn-success" onclick="salvar()">Salvar</button>
+		</div>
+		
+		<hr>
+		<div class="formbase">
+		
+			<h2>Cursos Cadastrados</h2>
+			<div class="row">
+				<div class="col-md-8"><input type="text" class="form-control" id="codigo" placeholder="Digite o codigo de busca"/></div>
+				<div class="col-md-2"><button class="btn btn-primary" onclick="buscar()">Buscar</button></div>
+				<div class="col-md-2"><button class="btn btn-primary" onclick="listarTodos()">Listar todos</button></div>
+			</div>
+			
+			<br>
+			<table style="width: 100%">
+				<thead>
+					<tr>
+						<th class="col-md-1 text-center"><h3>ID</h3></th>
+						<th class="col-md-1 text-center"><h3>Curso</h3></th>
+						<th class="col-md-1 text-center"><h3>Duração</h3></th>
+						<th class="col-md-1 text-center"><h3>Mensalidade</h3></th>
+						<th class="col-md-1 text-center"><h3>Escola</h3></th>
+						<th class="col-md-1 text-center"><h3>Editar</h3></th>
+						<th class="col-md-1 text-center"><h3>Excluir</h3></th>
+					</tr>
+				</thead>
+				
+				<tbody id="cursos"></tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	
+	<script th:src="@{/js/curso.js}"></script>
+</body>
+</html>
